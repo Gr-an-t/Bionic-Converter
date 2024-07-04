@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bionic-Converter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54e5b8e2c1151ae2ad48bd9296bc7bf56c13e9f7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40897d3a74a48f6038409f99906beb9a0ff4d119")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bionic-Converter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bionic-Converter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

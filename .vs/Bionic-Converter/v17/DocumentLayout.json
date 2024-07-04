@@ -3,51 +3,113 @@
   "WorkspaceRootPath": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|c:\\users\\grant\\source\\repos\\bionic-converter\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|c:\\users\\grant\\source\\repos\\bionic-converter\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|c:\\users\\grant\\source\\repos\\bionic-converter\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|c:\\users\\grant\\source\\repos\\bionic-converter\\bionic-converter.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|solutionrelative:bionic-converter.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|c:\\users\\grant\\source\\repos\\bionic-converter\\bionic-converter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|solutionrelative:bionic-converter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|c:\\users\\grant\\source\\repos\\bionic-converter\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|c:\\users\\grant\\source\\repos\\bionic-converter\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{24C09643-EF98-412A-B26C-248ED505DFD7}|Bionic-Converter.csproj|solutionrelative:app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 256,
+      "VerticalTabListWidth": 197,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AQIAAJ8AAAAAAAAAAAAAAL4AAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-03T21:58:37.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "app.manifest",
+              "DocumentMoniker": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\app.manifest",
+              "RelativeDocumentMoniker": "app.manifest",
+              "ToolTip": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\app.manifest",
+              "RelativeToolTip": "app.manifest",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2024-07-03T21:43:33.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Bionic-Converter.csproj",
+              "DocumentMoniker": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\Bionic-Converter.csproj",
+              "RelativeDocumentMoniker": "Bionic-Converter.csproj",
+              "ToolTip": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\Bionic-Converter.csproj",
+              "RelativeToolTip": "Bionic-Converter.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-03T21:41:27.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Bionic-Converter",
+              "DocumentMoniker": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\Bionic-Converter.csproj",
+              "RelativeDocumentMoniker": "Bionic-Converter.csproj",
+              "ToolTip": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\Bionic-Converter.csproj",
+              "RelativeToolTip": "Bionic-Converter.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-03T21:41:30.177Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-03T19:45:21.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-03T19:45:21.586Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\grant\\source\\repos\\Bionic-Converter\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAqwDQAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-03T19:45:20.186Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
