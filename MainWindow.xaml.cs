@@ -1,115 +1,143 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Xml.Linq;
 using System.Text.RegularExpressions;
-using static System.Net.Mime.MediaTypeNames;
+using System.Windows;
+using System.Xml.Linq;
 
 namespace Bionic_Converter
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private readonly EpubConverter _epubConverter;
+		private readonly FileProcessor _fileProcessor;
+
 		public MainWindow()
 		{
 			InitializeComponent();
+			_epubConverter = new EpubConverter();
+			_fileProcessor = new FileProcessor();
 		}
 
 		private void documentSelectButton_Click(object sender, RoutedEventArgs e)
 		{
-			Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-			dlg.DefaultExt = ".epub";
-			dlg.Filter = "EPUB Files (*.epub)|*.epub";
-
-			Nullable<bool> result = dlg.ShowDialog();
-			if (result.HasValue && result.Value)
+			try
 			{
-				string fileName = System.IO.Path.GetFileName(dlg.FileName);
-				string extractedPath = System.IO.Path.GetFullPath(dlg.FileName);
-				File.Move(extractedPath, System.IO.Path.ChangeExtension(extractedPath, ".zip"));
-				extractedPath = System.IO.Path.ChangeExtension(extractedPath, ".zip");
-				string outputPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(extractedPath) ?? "C:\\", fileName);
-				string tempPath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString());
-				ZipFile.ExtractToDirectory(extractedPath, tempPath, System.Text.Encoding.UTF8);
-
-				//TODO Modify zip files
-				if (!ConvertEpubFiles(tempPath)) return;
-
-				ZipFile.CreateFromDirectory(tempPath, outputPath);
-
-				if (Directory.Exists(tempPath))
+				var dlg = new Microsoft.Win32.OpenFileDialog
 				{
-					Directory.Delete(tempPath, true);
-				}
-			}
-		}
+					DefaultExt = ".epub",
+					Filter = "EPUB Files (*.epub)|*.epub"
+				};
 
-		static private bool ConvertEpubFiles(string fileLocation)
-		{
-			string contentPath = System.IO.Path.Combine(fileLocation, "OEBPS");
-			Regex regex = new Regex(@"\b\w+\b");
-
-			if (Directory.Exists(contentPath))
-			{
-				string[] xhtmlFiles = Directory.GetFiles(contentPath, "*.xhtml");
-				XNamespace ns = "http://www.w3.org/1999/xhtml";
-
-				foreach (string xhtmlFile in xhtmlFiles)
+				var result = dlg.ShowDialog();
+				if (result.HasValue && result.Value)
 				{
-					XDocument xhtml = XDocument.Load(xhtmlFile);
+					processStatusText.Text = "Starting Conversion";
+					string fileName = System.IO.Path.GetFileName(dlg.FileName);
+					string extractedPath = _fileProcessor.PrepareFile(dlg.FileName);
+					string tempPath = System.IO.Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString());
 
-					foreach (XElement p in xhtml.Descendants(ns + "p"))
+					_fileProcessor.ExtractFile(extractedPath, tempPath);
+
+					if (_epubConverter.ConvertEpubFiles(tempPath))
 					{
-						// Store the original text content
-						string originalText = p.Value;
-
-						// Split the original text content while preserving the whitespace
-						var parts = Regex.Split(originalText, @"(\b\w+\b)");
-
-						// Create a new list to build the new content
-						List<object> newContent = new List<object>();
-
-						foreach (var part in parts)
-						{
-							if (regex.IsMatch(part))
-							{
-								int halfLength = part.Length / 2;
-								string firstHalf = part.Substring(0, halfLength);
-								string secondHalf = part.Substring(halfLength);
-
-								// Wrap only the first half of the word with <b> tags
-								newContent.Add(new XElement(ns + "b", firstHalf));
-								newContent.Add(secondHalf);
-							}
-							else
-							{
-								newContent.Add(part); // Preserve non-word parts (like whitespace)
-							}
-						}
-
-						// Replace the old paragraph content with the new content
-						p.ReplaceNodes(newContent);
+						string outputPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(extractedPath) ?? "C:\\", fileName);
+						_fileProcessor.CreateFileFromDirectory(tempPath, outputPath);
+						_fileProcessor.CleanUp(tempPath);
+						processStatusText.Text = "Conversion Finished!";
 					}
-
-					xhtml.Save(xhtmlFile);
 				}
 			}
-			return true;
+			catch (Exception ex)
+			{
+				processStatusText.Text = ex.Message;
+			}
 		}
-
 	}
 
+	public class FileProcessor
+	{
+		public string PrepareFile(string filePath)
+		{
+			string extractedPath = System.IO.Path.ChangeExtension(filePath, ".zip");
+			File.Move(filePath, extractedPath);
+			return extractedPath;
+		}
+
+		public void ExtractFile(string zipPath, string extractPath)
+		{
+			ZipFile.ExtractToDirectory(zipPath, extractPath, System.Text.Encoding.UTF8);
+		}
+
+		public void CreateFileFromDirectory(string sourcePath, string destinationPath)
+		{
+			ZipFile.CreateFromDirectory(sourcePath, destinationPath);
+		}
+
+		public void CleanUp(string tempPath)
+		{
+			if (Directory.Exists(tempPath))
+			{
+				Directory.Delete(tempPath, true);
+			}
+		}
+	}
+
+	public class EpubConverter
+	{
+		public bool ConvertEpubFiles(string fileLocation)
+		{
+			try
+			{
+				string contentPath = System.IO.Path.Combine(fileLocation, "OEBPS");
+				var regex = new Regex(@"\b\w+\b");
+
+				if (Directory.Exists(contentPath))
+				{
+					var xhtmlFiles = Directory.GetFiles(contentPath, "*.xhtml");
+					XNamespace ns = "http://www.w3.org/1999/xhtml";
+
+					foreach (var xhtmlFile in xhtmlFiles)
+					{
+						var xhtml = XDocument.Load(xhtmlFile);
+
+						foreach (var p in xhtml.Descendants(ns + "p"))
+						{
+							string originalText = p.Value;
+							var parts = Regex.Split(originalText, @"(\b\w+\b)");
+							var newContent = new List<object>();
+
+							foreach (var part in parts)
+							{
+								if (regex.IsMatch(part))
+								{
+									int halfLength = part.Length / 2;
+									string firstHalf = part.Substring(0, halfLength);
+									string secondHalf = part.Substring(halfLength);
+
+									newContent.Add(new XElement(ns + "b", firstHalf));
+									newContent.Add(secondHalf);
+								}
+								else
+								{
+									newContent.Add(part);
+								}
+							}
+
+							p.ReplaceNodes(newContent);
+						}
+
+						xhtml.Save(xhtmlFile);
+					}
+				}
+				return true;
+			}
+			catch (Exception)
+			{
+				// Handle the exception
+				return false;
+			}
+		}
+	}
 }

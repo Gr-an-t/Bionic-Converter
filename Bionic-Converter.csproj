@@ -8,6 +8,20 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\icon_32.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="info %281%29.png" />
+    <None Remove="info.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\icon_32.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="info.png" />
+  </ItemGroup>
 
 </Project>
