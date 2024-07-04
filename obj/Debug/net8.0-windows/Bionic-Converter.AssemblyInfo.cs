@@ -14,10 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bionic-Converter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13482464982bdbbcd48b34b700356295a28e596c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6462a93c8aed681d632d5915387891f49d4addfc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bionic-Converter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bionic-Converter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/Gr-an-t/Bionic-Converter")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

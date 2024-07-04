@@ -26,7 +26,7 @@
 			<RowDefinition Height="20" />
 		</Grid.RowDefinitions>
 
-		<TextBlock Grid.Column="3" Grid.Row="1" Text="Hello World" FontSize="18" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Center"/>
+		<TextBlock Grid.Column="3" Grid.Row="1" Text="Convert EPUB Text Into Bionic Text" FontSize="18" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Center"/>
 
 		<Button x:Name="documentSelectButton" Content="Select Epub" Grid.Column="3" Grid.Row="2" Margin="10" Click="documentSelectButton_Click" Grid.ColumnSpan="2"/>
 		<TextBlock x:Name="processStatusText" Grid.Column="3" Grid.Row="3" Margin="10" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
